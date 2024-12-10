@@ -1,7 +1,5 @@
 # Velkolepá animace
-# VOJTĚCH KAKEŠ A ŠIMON PLEWKA!!!!§
-
-
+# VOJTĚCH KAKEŠ A ŠIMON PLEWKA!!!!
 
 ### Vytvořte nádhernou animaci.
 
