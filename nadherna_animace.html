@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .kopi {
+            opacity: 0;
+            height: 300px;
+            translate: 700px -800px;
+            rotate: 270deg;
+            animation: hazeni 1s 1;
+        }
+        .leguan:hover {
+            scale: 1.2;
+            cursor: pointer;
+        }
+        .krev {
+            background-color: red;
+            aspect-ratio: 1/1;
+            height: 20px;
+        }
+        .jungle {
+            min-width: 100vw;
+            min-height: 100vh;
+        }
+        .leguan {
+            height: 200px;
+            position: absolute;
+            translate: 500px -500px;
+        }
+        .luky {
+            height: 400px;
+            aspect-ratio: 1/1,5;
+            translate: 1200px -2150px;
+            animation: prichod 6s ;
+        }
+        .domorodec {
+            height: 600px;
+            translate: 670px -700px;
+            opacity: 0;
+            animation: premena 3s forwards;
+            animation-delay: 4s;
+            position: absolute;
+        }
+        @keyframes hazeni {
+            100%{
+                translate: -300px 0;
+            }
+        }
+        @keyframes prichod {
+            0% {
+                height: 50px;
+                opacity: 0;
+            }
+            50% {
+                height: 400px;
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes premena {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <img class="jungle" src="img/jungle.jpg" alt="">
+    <div class="wrap">
+        
+        <img class="leguan" src="img/leguan.jpg" alt="">
+        <img class="luky" src="img/luky_hlava.png" alt="">
+        <img class="domorodec" src="img/luky_domorodec.png" alt="">
+
+    </div>
+
+    <script>
+        let leguan = document.querySelector(".leguan")
+        let kopi = document.querySelector(".kopi")
+        let lukas = document.querySelector(".domorodec")
+        let opacita = 0
+
+        leguan.addEventListener("click",  () => {
+            domorodec.style.left = 200
+            opacita = opacita + 0.2
+            leguan.style.opacity = 1 - opacita 
+            })   
+            
+        
+    </script>
+</body>
+</html>
