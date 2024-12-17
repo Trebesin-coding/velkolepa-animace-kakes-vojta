@@ -4,100 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <style>
-        .kopi {
-            opacity: 0;
-            height: 300px;
-            translate: 700px -800px;
-            rotate: 270deg;
-            animation: hazeni 1s 1;
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
         }
-        .leguan:hover {
+        .jungle {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .leguan, .luky, .domorodec, .peceny-leguan, .ohen {
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .domorodec:hover {
             scale: 1.2;
             cursor: pointer;
         }
-        .krev {
-            background-color: red;
-            aspect-ratio: 1/1;
-            height: 20px;
-        }
-        .jungle {
-            min-width: 100vw;
-            min-height: 100vh;
-        }
         .leguan {
             height: 200px;
-            position: absolute;
-            translate: 500px -500px;
+            top: 500px;
+            left: 600px;
         }
+
         .luky {
-            height: 400px;
-            aspect-ratio: 1/1,5;
-            translate: 1200px -2150px;
-            animation: prichod 6s ;
+            height: 0px;
+            top: 300px;
+            left: 1000px;
         }
         .domorodec {
-            height: 600px;
-            translate: 670px -700px;
-            opacity: 0;
-            animation: premena 3s forwards;
-            animation-delay: 4s;
-            position: absolute;
-        }
-        @keyframes hazeni {
-            100%{
-                translate: -300px 0;
-            }
-        }
-        @keyframes prichod {
-            0% {
-                height: 50px;
-                opacity: 0;
-            }
-            50% {
-                height: 400px;
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
+            height: 500px;
+            top: 300px;
+            left: 700px;
         }
 
-        @keyframes premena {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
+        .peceny-leguan {
+            height: 300px;
+            top: 500px;
+            left: 600px;
         }
 
+        .ohen {
+            height: 300px;
+            top: 600px;
+            left: 600px;
+        }
     </style>
 </head>
 <body>
-    <img class="jungle" src="img/jungle.jpg" alt="">
-    <div class="wrap">
-        
-        <img class="leguan" src="img/leguan.jpg" alt="">
-        <img class="luky" src="img/luky_hlava.png" alt="">
-        <img class="domorodec" src="img/luky_domorodec.png" alt="">
+    <img class="jungle" src="img/jungle.jpg" alt="Džungle">
 
-    </div>
+
+    <img class="leguan" src="img/leguan.jpg" alt="Leguan">
+    <img class="luky" src="img/luky_hlava.png" alt="Luky">
+    <img class="domorodec" src="img/luky_domorodec.png" alt="Domorodec">
+    <img class="peceny-leguan" src="img/leguan_peceny (1).png" alt="Pečený Leguan">
+    <img class="ohen" src="img/ohen.png" alt="Oheň">
 
     <script>
-        let leguan = document.querySelector(".leguan")
-        let kopi = document.querySelector(".kopi")
-        let lukas = document.querySelector(".domorodec")
-        let opacita = 0
+        let leguan = document.querySelector(".leguan");
+        let luky = document.querySelector(".luky");
+        let domorodec = document.querySelector(".domorodec");
+        let pecenyLeguan = document.querySelector(".peceny-leguan");
+        let ohen = document.querySelector(".ohen");
 
-        leguan.addEventListener("click",  () => {
-            domorodec.style.left = 200
-            opacita = opacita + 0.2
-            leguan.style.opacity = 1 - opacita 
-            })   
-            
+        setTimeout(() => {
+            leguan.style.opacity = 1;
+        }, 1000);
+
+        setTimeout(() => {
+            luky.style.opacity = 1;
+        }, 2000);
+
+        setTimeout(() => {
+            luky.style.height = "500px"
+            luky.style.transform = "translate(-400px, 0)";
+        }, 4000);
+
+        setTimeout(() => {
         
+
+
+            setTimeout(() => {
+                luky.style.opacity = 0; 
+                domorodec.style.opacity = 1;
+            }, 1000);
+
+
+            setTimeout(() => {
+                domorodec.style.transform = "translate(-350px, 0)";
+                leguan.style.opacity = 0;
+            }, 2000);
+
+
+            setTimeout(() => {
+                pecenyLeguan.style.opacity = 1;
+                ohen.style.opacity = 1;
+            }, 3000);
+        }, 4000);
     </script>
 </body>
 </html>
