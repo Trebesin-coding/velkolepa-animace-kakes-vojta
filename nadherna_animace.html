@@ -20,8 +20,10 @@
             left: 0;
             z-index: -1;
         }
-
-        .leguan, .luky, .domorodec, .peceny-leguan, .ohen {
+        .nic {
+            height: 0px;
+        }
+        .domorodec, .peceny-leguan, .ohen {
             position: absolute;
             opacity: 0;
             transition: opacity 1s ease, transform 1s ease;
@@ -31,44 +33,79 @@
             cursor: pointer;
         }
         .leguan {
+            position: absolute;
+            opacity: 1;
             height: 200px;
             top: 500px;
             left: 600px;
+            animation: zmizeni 1s 6s forwards;
         }
 
         .luky {
-            height: 0px;
+            position: absolute;
+            height: 500px;
             top: 300px;
-            left: 1000px;
+            left: 1400px;
+            animation: prichod 5s forwards;
+
+            
         }
         .domorodec {
             height: 500px;
             top: 300px;
-            left: 700px;
+            left: 900px;
+            animation: objeveni 1s 5s forwards, zabiti 1s 6s forwards;
         }
 
         .peceny-leguan {
             height: 300px;
             top: 500px;
             left: 600px;
+            animation: objeveni 1s 6s forwards;
         }
 
         .ohen {
             height: 300px;
             top: 600px;
             left: 600px;
+            animation: objeveni 1s 6s forwards;
+        }
+        @keyframes prichod {
+            99% {
+                translate: -600px 0;
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        @keyframes objeveni {
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes zmizeni {
+            100% {
+                opacity: 0;
+            }
+        }
+        @keyframes zabiti {
+            100% {
+                top: 300px;
+                left: 300px;
+            }
         }
     </style>
 </head>
 <body>
-    <img class="jungle" src="img/jungle.jpg" alt="Džungle">
+    <img class="jungle" src="img/jungle.jpg" alt="">
 
 
-    <img class="leguan" src="img/leguan.jpg" alt="Leguan">
-    <img class="luky" src="img/luky_hlava.png" alt="Luky">
-    <img class="domorodec" src="img/luky_domorodec.png" alt="Domorodec">
-    <img class="peceny-leguan" src="img/leguan_peceny (1).png" alt="Pečený Leguan">
-    <img class="ohen" src="img/ohen.png" alt="Oheň">
+    <img class="leguan" src="img/leguan.jpg" alt="">
+    <img class="luky" src="img/luky_hlava.png" alt="">
+    <img class="domorodec" src="img/luky_domorodec.png" alt="">
+    <img class="peceny-leguan" src="img/leguan_peceny (1).png" alt="">
+    <img class="ohen" src="img/ohen.png" alt="">
 
     <script>
         let leguan = document.querySelector(".leguan");
@@ -76,41 +113,17 @@
         let domorodec = document.querySelector(".domorodec");
         let pecenyLeguan = document.querySelector(".peceny-leguan");
         let ohen = document.querySelector(".ohen");
+        let pozadi = document.querySelector(".jungle");
 
-        setTimeout(() => {
-            leguan.style.opacity = 1;
-        }, 1000);
-
-        setTimeout(() => {
-            luky.style.opacity = 1;
-        }, 2000);
-
-        setTimeout(() => {
-            luky.style.height = "500px"
-            luky.style.transform = "translate(-400px, 0)";
-        }, 4000);
-
-        setTimeout(() => {
-        
-
-
-            setTimeout(() => {
-                luky.style.opacity = 0; 
-                domorodec.style.opacity = 1;
-            }, 1000);
-
-
-            setTimeout(() => {
-                domorodec.style.transform = "translate(-350px, 0)";
-                leguan.style.opacity = 0;
-            }, 2000);
-
-
-            setTimeout(() => {
-                pecenyLeguan.style.opacity = 1;
-                ohen.style.opacity = 1;
-            }, 3000);
-        }, 4000);
+        domorodec.addEventListener("click",  () => {
+            let pozadi = document.querySelector(".jungle");
+            pozadi.src = "img/jungle_outro.jpg";
+            pecenyLeguan.classList.remove("peceny-leguan");
+            ohen.classList.remove("ohen");
+            pecenyLeguan.classList.add("nic");
+            ohen.classList.add("nic");
+            document.body.append(pozadi);
+            })   
     </script>
 </body>
 </html>
